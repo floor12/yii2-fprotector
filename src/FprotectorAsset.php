@@ -23,5 +23,10 @@ class FprotectorAsset extends AssetBundle
         'secret.js',
     ];
 
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
+
+
 
 }

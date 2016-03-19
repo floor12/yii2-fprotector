@@ -378,7 +378,6 @@ function bit_rol(num, cnt)
   return (num << cnt) | (num >>> (32 - cnt));
 }
 
-function fprotectorChech(obj) {
+function fprotectorCheck(obj) {
   obj.val(hex_md5(obj.val()));
-  console.log('generation...');
 }
