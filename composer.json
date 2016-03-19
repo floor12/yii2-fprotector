@@ -8,7 +8,7 @@
     "yii",
     "yii2",
     "yii 2",
-    "forms",
+    "forms"
   ],
   "license": "BSD-3-Clause",
   "authors": [
@@ -20,11 +20,11 @@
   ],
   "require": {
     "yiisoft/yii2": "~2.0.0",
-    "yiisoft/yii2-jui": "*",
+    "yiisoft/yii2-jui": "*"
   },
   "autoload": {
     "psr-4": {
       "floor12\\fprotector\\": "src"
     }
-  },
+  }
 }
