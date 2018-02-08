@@ -382,5 +382,5 @@ function fprotectorCheck(obj) {
     setTimeout(function () {
         obj.val(hex_md5(obj.val()));
         console.log(1);
-    }, 10000)
+    }, 6000)
 }
