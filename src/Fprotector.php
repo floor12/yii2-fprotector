@@ -25,7 +25,7 @@ class Fprotector
 
     static public function check($modelName)
     {
-        if (!isset($_POST[$modelName]['code']) || $_POST[$modelName]['code'] != md5(md5($_SERVER['REMOTE_ADDR']))) {
+        if (!YII_ENV_TEST && (!isset($_POST[$modelName]['code']) || $_POST[$modelName]['code'] != md5(md5($_SERVER['REMOTE_ADDR'])))) {
             throw new BadRequestHttpException('Вы похожи на спам-бота. Попробуйте отправить форму еще раз.');
         }
     }
