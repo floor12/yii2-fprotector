@@ -378,9 +378,42 @@ function bit_rol(num, cnt)
   return (num << cnt) | (num >>> (32 - cnt));
 }
 
-function fprotectorCheck(obj) {
+function fprotectorCheck01(obj) {
     setTimeout(function () {
         obj.val(hex_md5(obj.val()));
-        console.log(1);
     }, 6000)
+}
+
+function fprotectorCheck02(obj) {
+  let tabCount = 0;
+  let mouseMovement = 0;
+  let startTime = Date.now();
+  let delay = 2000;
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 200 && screenWidth <= 500) {
+    delay = 6000;
+    setTimeout(() => obj.val(hex_md5(obj.val())), delay);
+    return;
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Tab") {
+      tabCount++;
+    }
+  });
+
+  document.addEventListener("mousemove", function (event) {
+    mouseMovement += Math.abs(event.movementX) + Math.abs(event.movementY);
+  });
+
+  function checkAndHash() {
+    if (Date.now() - startTime >= delay && (tabCount >= 2 || mouseMovement >= 300)) {
+      obj.val(hex_md5(obj.val()));
+    } else {
+      setTimeout(checkAndHash, 500);
+    }
+  }
+
+  setTimeout(checkAndHash, 500);
 }

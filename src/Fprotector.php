@@ -21,7 +21,7 @@ class Fprotector
     {
         $view = \Yii::$app->view;
         FprotectorAsset::register($view);
-        $view->registerJs("jQuery(document).ready(function(){fprotectorCheck(jQuery('#{$modelName}_code'));})", $view::POS_END, 'fprotector_' . $modelName);
+        $view->registerJs("jQuery(document).ready(function(){fprotectorCheck02(jQuery('#{$modelName}_code'));})", $view::POS_END, 'fprotector_' . $modelName);
         return "<input type='hidden' id='{$modelName}_code' name='{$modelName}[code]' value='" . md5($_SERVER['REMOTE_ADDR']) . "'>";
     }
 
